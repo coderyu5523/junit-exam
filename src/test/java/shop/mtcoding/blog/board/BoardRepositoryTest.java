@@ -95,7 +95,6 @@ public class BoardRepositoryTest {
         String title = "수정1";
         int id = 1;
 
-
         //when
         boardRepository.updateTitle(title,id);
 
@@ -105,10 +104,44 @@ public class BoardRepositoryTest {
         System.out.println(board);
 
         Assertions.assertThat(board.getTitle()).isEqualTo("수정1");
-
-
     }
 
+    @Test
+    public void updateContent_test(){
+        //given;
+        String content = "내용수정1";
+        int id = 1;
+
+
+        //when
+        boardRepository.updateContent(content,id);
+
+        //then
+        Board board = boardRepository.selectOne(id);
+
+        System.out.println(board);
+
+        Assertions.assertThat(board.getContent()).isEqualTo("내용수정1");
+    }
+
+
+    @Test
+    public void updateAuthor_test(){
+        //given;
+        String author = "ssar";
+        int id = 1;
+
+
+        //when
+        boardRepository.updateAuthor(author,id);
+
+        //then
+        Board board = boardRepository.selectOne(id);
+
+        System.out.println(board);
+
+        Assertions.assertThat(board.getAuthor()).isEqualTo("ssar");
+    }
 
 
 
