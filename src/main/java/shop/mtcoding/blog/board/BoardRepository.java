@@ -73,13 +73,6 @@ public class BoardRepository {
         query.executeUpdate();
     }
 
-    public Board findByIdWithTitle(int id){
-        Query query = em.createNativeQuery("select title from boarb_tb where id =?",Board.class);
-        query.setParameter(1,id);
-        Board board = (Board) query.getSingleResult();
-        return board;
-
-    }
 
 
 }
